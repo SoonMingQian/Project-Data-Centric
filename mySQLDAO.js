@@ -166,7 +166,7 @@ function isManagerWorking(managerID){
 function duplicateStore(sid){
     return new Promise((resolve, reject) => {
         var myQuery = {
-            sql: 'SELECT * FROM store WHERE sId = ?',
+            sql: 'SELECT * FROM store WHERE sid = ?',
             values: [sid]
         }
         pool.query(myQuery)
@@ -178,4 +178,20 @@ function duplicateStore(sid){
         })
     })
 }
-module.exports = { getStores, addStores, editStores, getStoreByID, getProducts, checkProducts, deleteProducts, isManagerWorking, duplicateStore }
+
+function duplicateManager(managerID){
+    return new Promise((resolve, reject) => {
+        var myQuery = {
+            sql: 'SELECT * FROM store WHERE mgrid = ?',
+            values: [managerID]
+        }
+        pool.query(myQuery)
+        .then((data) => {
+            resolve(data);
+        })
+        .catch(error => {
+            reject(error);
+        })
+    })
+}
+module.exports = { getStores, addStores, editStores, getStoreByID, getProducts, checkProducts, deleteProducts, isManagerWorking, duplicateStore, duplicateManager}

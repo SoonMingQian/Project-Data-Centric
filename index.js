@@ -53,7 +53,8 @@ app.post('/addStores', async (req, res) => {
     const managerID = req.body.mgrid;
     const manager = await mongoDAO.findManagerID(managerID);
     const sid = req.body.sid;
-    const storeDuplicate = await mySQLDAO.duplicateStore(sid)
+    const storeDuplicate = await mySQLDAO.duplicateStore(sid);
+    const managerDuplicate = await mySQLDAO.duplicateManager(managerID);
 
     //Handle errors and success 
     if(manager == null){
@@ -61,8 +62,9 @@ app.post('/addStores', async (req, res) => {
     //Check the store id is duplicate
     }else if (storeDuplicate.length > 0){
         return res.render('addStores', { message: storeData.sid + " store ID is already exists." });
-    }
-    else{
+    }else if (managerDuplicate.length>0){
+        return res.render('addStores', { message: storeData.mgrid + " is working in another store." });
+    }else{
         mySQLDAO.addStores(storeData)
         res.redirect('/stores')
     }
