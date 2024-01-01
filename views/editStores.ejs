@@ -1,0 +1,23 @@
+<h1>Edit Stores</h1>
+<!-- Check if a message is defined and display it if true -->
+<% if(typeof message !="undefined" && message){ %>
+    <p>
+        <li><%= message %></li>
+    </p>
+    
+    <%} %>
+
+    <!-- Form to edit store -->
+    <form action="/editStores/<%= store[0].sid %>" method="post">
+        <label for="sid">SID</label>
+        <input type="text" name="sid" value="<%= store[0].sid %>" readonly>
+        <br>
+        <label for="location">New Location</label>
+        <input type="text" id="location" name="location" value="<%= store[0].location %>">
+        <br>
+        <label for="mygrid">New Manager ID</label>
+        <input type="text" id="mgrid" name="mgrid" value="<%= store[0].mgrid %>">
+        <br>
+        <button type="submit">Update</button>
+    </form>
+    <a href="/">Home</a>

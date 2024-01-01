@@ -1,0 +1,23 @@
+<h1>Add Stores</h1>
+<!-- Check if a message is defined and display it if true -->
+<% if(typeof message !="undefined" && message){ %>
+    <p>
+        <li><%= message %></li>
+    </p>
+    
+    <%} %>
+
+<!-- Form to add store -->
+<form action="/addStores" method="post">
+    <label for="sid">SID</label>
+    <input type="text" id="sid" name="sid" required>
+    <br>
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" required>
+    <br>
+    <label for="mgrid">Manager ID</label>
+    <input type="text" id="mgrid" name="mgrid" required>
+    <br>
+    <button type="submit">Add Store</button>
+</form>
+<a href="/">Home</a>

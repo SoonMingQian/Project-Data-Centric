@@ -1,0 +1,25 @@
+<h1>Add Stores</h1>
+<!-- Check if a message is defined and display it if true -->
+<% if(typeof message !="undefined" && message){ %>
+    <p>
+        <li><%= message %></li>
+    </p>
+    <%} %>
+
+
+    <!-- Form to add manager -->
+        <form action="/addManager" method="post">
+            <label for="id">Manager ID</label>
+            <input type="text" id="id" name="id">
+            <br>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="salary">Salary</label>
+            <input type="text" id="salary" name="salary">
+            <br>
+            <button type="submit">Add</button>
+        </form>
+        <ul>
+            <a href="/">Home</a>
+        </ul>

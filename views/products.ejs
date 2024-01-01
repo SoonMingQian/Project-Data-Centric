@@ -1,0 +1,29 @@
+<h1>Products</h1>
+<!-- Create a table to display product information -->
+<table>
+    <tr>
+        <th>Product ID</th>
+        <th>Description</th>
+        <th>Store ID</th>
+        <th>Location</th>
+        <th>Price</th>
+    </tr>
+    <% product.forEach((pro) => {%>
+        <tr>
+            <td><%= pro.pid %></td>
+            <td><%= pro.productdesc %></td>
+            <td><%= pro.sid %></td>
+            <td><%= pro.location %></td>       
+            <td><%= pro.Price %></td>
+            <td>
+                <ul>
+                    <li><a href="/products/delete/<%=pro.pid %>">Delete  <%= pro.productdesc%></a></li>
+                </ul>
+            </td>
+        </tr>
+    <%})%>
+</table>
+<!-- Link back to home page -->
+<ul>
+    <li><a href="/">Home</a></li>
+</ul>

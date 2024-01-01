@@ -1,0 +1,24 @@
+<h1>Managers (MongoDB)</h1>
+<!-- Link to add manager -->
+<ul>
+    <li><a href="/addManager">Add Manager (MongoDB)</a></li>
+</ul>
+<!-- Create a table to display manager information -->
+<table>
+    <tr>
+        <th>Manager ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+    <% manager.forEach((man) => {%>
+        <tr>
+            <td><%= man._id %></td>
+            <td><%= man.name %></td>
+            <td><%= man.salary %></td>
+        </tr>
+    <%})%>
+</table>
+<!-- Link back to home page -->
+<ul>
+    <li><a href="/">Home</a></li>
+</ul>
